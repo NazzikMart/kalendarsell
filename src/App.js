@@ -1,8 +1,8 @@
-import CostItem from "./Components/CostItem";
-import Costs from "./Components/Costs";
-import Card from "./Components/Card";
+import CostItem from "./Components/Costs/CostItem";
+import Costs from "./Components/Costs/Costs";
+import Card from "./Components/UI/Card";
 
-function App() {
+const App = () => {
   const costs = [
     {
       date: new Date(),
@@ -26,6 +26,6 @@ function App() {
       <Costs costs={costs} />
     </div>
   );
-}
+};
 
 export default App;
