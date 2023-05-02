@@ -1,6 +1,7 @@
 import CostItem from "./Components/Costs/CostItem";
 import Costs from "./Components/Costs/Costs";
 import Card from "./Components/UI/Card";
+import NewCost from "./Components/NewCost/NewCost";
 
 const App = () => {
   const costs = [
@@ -22,7 +23,7 @@ const App = () => {
   ];
   return (
     <div className="App">
-      <h1>Вивчаємо React</h1>
+      <NewCost />
       <Costs costs={costs} />
     </div>
   );

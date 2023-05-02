@@ -6,8 +6,10 @@ import { useState } from "react";
 import CostDate from "./CostDate";
 
 export default function CostItem(props) {
-  function changeDescription() {
-    console.log("click");
+  const [description, setDescription] = useState(props.description);
+
+  function changeDescriptionHandler() {
+    setDescription("new cost");
   }
   return (
     <Card className="cost-item">
@@ -15,10 +17,10 @@ export default function CostItem(props) {
         <CostDate date={props.date} />
       </div>
       <div className="cost-item__description">
-        <h2>{props.description}</h2>
+        <h2>{description}</h2>
         <div className="cost-item__price">{props.amout} грн</div>
       </div>
-      <button onClick={changeDescription}>Редагувати</button>
+      <button onClick={changeDescriptionHandler}>Редагувати</button>
     </Card>
   );
 }
