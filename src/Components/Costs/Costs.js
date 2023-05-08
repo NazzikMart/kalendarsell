@@ -8,22 +8,32 @@ import { useState } from "react";
 export default function Costs(props) {
   const [selectedYear, setSelectedYear] = useState("2023");
   const yearChangeHandler = (year) => {
-    console.log(year);
-    console.log("costs");
+    setSelectedYear(year);
   };
+
+  const filteredCosts = props.costs.filter((cost) => {
+    return cost.date.getFullYear().toString() === selectedYear;
+  });
+
+  let costsContent = <p>В цьому році витрат немає</p>;
+
+  if (filteredCosts.length > 0) {
+    costsContent = filteredCosts.map((cost) => {
+      return (
+        <CostItem
+          key={cost.id}
+          date={cost.date}
+          description={cost.description}
+          amout={cost.amout}
+        />
+      );
+    });
+  }
   return (
     <div>
       <Card className="costs">
         <CostsFilter year={selectedYear} onChangeYear={yearChangeHandler} />
-        {props.costs.map((cost) => {
-          return (
-            <CostItem
-              date={cost.date}
-              description={cost.description}
-              amout={cost.amout}
-            />
-          );
-        })}
+        {costsContent}
       </Card>
     </div>
   );

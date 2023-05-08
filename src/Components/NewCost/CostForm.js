@@ -20,8 +20,8 @@ export default function CostForm(props) {
     event.preventDefault();
 
     const costData = {
-      name: inputName,
-      amount: inputAmount,
+      description: inputName,
+      amout: inputAmount,
       date: new Date(inputDate),
     };
 
@@ -50,7 +50,7 @@ export default function CostForm(props) {
           <input
             type="date"
             value={inputDate}
-            min="2023-05-02"
+            min="2010-05-02"
             onChange={dateChangeHandler}
           />
         </div>
